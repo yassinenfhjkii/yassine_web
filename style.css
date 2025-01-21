@@ -97,9 +97,12 @@ header {
 
 }
 .logo img {
-    max-width: 80px; /* تقليل حجم الشعار */
-    transition: transform 0.3s ease-in-out;
-    margin-right: 5px;/* مسافة بين الشعار والنص */
+  
+  width: 100px; /* قم بتحديد عرض الصورة */
+  height: 100px; /* قم بتحديد ارتفاع الصورة، يجب أن يكون مساويًا للعرض */
+  border-radius: 50%; /* لجعل الصورة دائرية */
+  object-fit: cover; /* لتجنب تشويه الصورة إذا لم تكن مربعة تمامًا */
+
 }
 
 .logo img:hover {
