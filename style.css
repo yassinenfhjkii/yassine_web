@@ -1,0 +1,424 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    line-height: 1.7;
+    overflow-x: hidden;
+    background-color: #111; /* لون خلفية أساسي */
+}
+.typing-container {
+    display: flex; /* لجعل الحاوية مرنة */
+    justify-content: center; /* لتوسيط المحتوى أفقيًا */
+    align-items: center; /* لتوسيط المحتوى عموديًا */
+    padding: 1rem 0;
+    background-color: rgba(0,0,0,0.3);
+    color: #fff;
+    margin: 0 5%;
+    border-radius: 5px;
+    min-height: 10vh; /* لضمان وجود مساحة كافية */
+}
+
+#typing-text {
+    font-size: 1.5rem;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: .15em solid white;
+    animation:
+      typing 3s steps(30, end) forwards,
+      blink-caret .75s step-end infinite;
+}
+/* Full Screen Background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #111; /* لون الخلفية الكاملة */
+    z-index: -2; /* أقل من الخلفية المتحركة */
+}
+
+
+/* Animated Background (Inside the frame) */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('5ef62aa9-2dcb-4295-9517-73c4bdcec82b-576x1024.webp'); /* مسار الصورة الخلفية */
+    background-size: cover; /* استخدام cover لتغطية كاملة */
+    background-repeat: no-repeat; /* عدم تكرار الصورة */
+    background-position: center center; /* توسيط الصورة */
+    filter: blur(4px);
+    z-index: -1;
+    opacity: 0.6;
+    animation: zoomBackground 20s linear infinite;
+        background-attachment: fixed; /* تثبيت الخلفية */
+
+}
+
+@keyframes zoomBackground {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+
+/* Header Styles */
+header {
+        background: rgba(0,0,0,0.5); /* لون خلفية الهيدر الجديد  شفافة*/
+    color: #fff;
+    padding: 5px 0; /* تقليل الحشو العمودي */
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);/* جعل الظل خفيف */
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+        padding: 5px 20px; /* تقليل الحشو الجانبي */
+}
+
+.logo {
+    display: flex;
+    align-items: center; /* توسيط الشعار بشكل رأسي */
+
+}
+.logo img {
+    max-width: 80px; /* تقليل حجم الشعار */
+    transition: transform 0.3s ease-in-out;
+    margin-right: 5px;/* مسافة بين الشعار والنص */
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+.logo-text {
+     font-size: 1.2rem; /* حجم نص الشعار */
+    font-weight: bold; /* جعل النص جريء */
+}
+
+/* Header Content */
+.header-content {
+    display: flex;
+    align-items: center;
+}
+
+
+/* Navigation Styles */
+nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+}
+
+nav ul {
+    list-style: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 5px; /* تقليل المسافة */
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    position: relative;
+    transition: color 0.3s ease; /* إضافة تأثير لون */
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ddd; /* تغيير لون النص عند التمرير */
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Main Content Styles */
+main {
+    padding: 4rem 0;
+    position: relative;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5rem 0;
+    background: rgba(0,0,0,0.3);
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+    overflow: hidden;
+    position: relative;
+    margin: 0 5%;
+}
+
+.hero-content {
+    max-width: 50%;
+    padding: 2rem 3rem;
+    position: relative;
+    z-index: 2;
+    animation: fadeInFromLeft 1s ease-out;
+}
+
+.hero-content h1 {
+    color: #fff;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+    color: #ddd;
+    margin-bottom: 2.5rem;
+    font-size: 1.1rem;
+}
+
+.hero-image {
+    position: relative;
+    max-width: 30%; /* تقليل العرض */
+    max-height: 400px; /* تقليل الارتفاع */
+    overflow: hidden;
+    animation: fadeInFromRight 1s ease-out;
+        display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-image img {
+    max-width: 100%; /* الصورة تأخذ كامل عرض الحاوية */
+    max-height: 100%; /* الصورة تأخذ كامل ارتفاع الحاوية */
+    border-radius: 15px;
+    object-fit: contain;  /* لتجعل الصورة متناسقة في الحاوية */
+
+}
+
+/* Button Styles */
+.btn {
+    background-color: #3498db;
+    color: #fff;
+      padding: 15px 25px; /* زيادة الحشو لجعله أكبر */
+    text-decoration: none;
+    border-radius: 30px; /* جعل الزوايا دائرية أكثر */
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    font-size: 1.1rem; /* زيادة حجم الخط */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* إضافة انتقال الظل */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* إضافة ظل */
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.2);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.btn:hover::before {
+    transform: scaleX(1);
+    transform-origin: right;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+        transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* زيادة حجم الظل عند التمرير */
+}
+
+.btn:active {
+    transform: translateY(1px);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* تقليل الظل عند النقر */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #1a2a6c; /* لون متناسق مع الشريط العلوي */
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Animations */
+@keyframes fadeInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.register-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background-image:url("c60a17be-55d2-46ac-96e4-c8a08197a436.png");
+    position: relative;
+}
+
+/* Animated Background (Inside the frame) */
+.register-page::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('c60a17be-55d2-46ac-96e4-c8a08197a436.png'); /* مسار الصورة الخلفية */
+    background-size: 100% auto;  /* تعديل الحجم ليكون متناسقًا */
+        background-repeat: repeat; /* لتكرار الصورة */
+    background-position: top center; /* توسيط الصورة أفقيًا */
+    filter: blur(4px);
+    z-index: -1;
+    opacity: 0.6;
+    animation: zoomBackground 20s linear infinite;
+      background-attachment: fixed; /* تثبيت الخلفية */
+}
+
+@keyframes zoomBackground {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* Animations */
+@keyframes zoomBackground {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.register-form {
+       background: rgba(0,0,0,0.3); /* خلفية شفافة أكثر للفورم */
+    padding: 2rem 3rem;
+    border-radius: 10px;
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 4px 8px rgba(0,0,0,0.2); /* إضافة ظل كحدود */
+    width: 450px;
+     color: #fff;/* لون النص */
+    position: relative;
+    z-index: 1;
+}
+.register-form p {
+    text-align: center; /* توسيط النص */
+    margin-top: 1rem; /* إضافة مساحة علوية */
+        color: #ddd; /* تغيير لون النص */
+}
+
+.register-form p a{
+      color: #3498db; /* لون الروابط */
+        text-decoration: none; /* إزالة التسطير */
+         transition: color 0.3s ease; /* إضافة تأثير لون */
+}
+.register-form p a:hover{
+     color: #2980b9;/* لون الروابط عند التمرير */
+}
+
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #ddd; /* لون التسميات */
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid #555; /* لون الحدود */
+    border-radius: 5px;
+    background-color: #222; /* لون خلفية الخانات */
+    color: #fff; /* لون النص داخل الخانات */
+}
+.form-group input::placeholder {
+     color: #aaa; /* لون النص placeholder */
+}
+.register-page::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   background-image: url('ai-background.jpg'); /* مسار الصورة الخلفية */
+    background-size: cover; /* استخدام cover لتغطية كاملة */
+    background-repeat: no-repeat; /* عدم تكرار الصورة */
+    background-position: center center; /* توسيط الصورة */
+        filter: blur(4px);
+    z-index: -1;
+    opacity: 0.6;
+    animation: zoomBackground 20s linear infinite;
+     background-attachment: fixed; /* تثبيت الخلفية */
+}
+
+/* Animations */
+@keyframes zoomBackground {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
