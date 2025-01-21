@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anonymous</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="0d4f856c-5c39-4be3-becf-00dbc08615b0.png" alt="شعار الموقع">
+            <span class="logo-text"> Anonymous</span>
+        </div>
+         <div class="header-content">
+       <nav>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="register.html">Register</a></li>
+    </ul>
+</nav>
+    </div>
+    </header>
+    <div class="typing-container">
+        <h2 id="typing-text"></h2>
+    </div>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1> Anonymous??? </h1>
+                <p> Anonymous by nature, who are you
+
+</p>
+                <a href="register.html" class="btn">Start</a>
+            </div>
+            <div class="hero-image">
+                <img src="0d4f856c-5c39-4be3-becf-00dbc08615b0.png" alt="صورة رئيسية">
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 جميع الحقوق محفوظة</p>
+    </footer>
+    <script>
+ const textToType = "Welcome to our anonymous website"
+
+ ; // النص الذي تريد كتابته // النص الذي تريد كتابته
+        const typingTextElement = document.getElementById('typing-text');
+        let charIndex = 0;
+
+        function typeText() {
+            if (charIndex < textToType.length) {
+                typingTextElement.innerHTML += textToType.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeText, 100); // سرعة الكتابة (بالمللي ثانية)
+            }
+        }
+
+        typeText(); // استدعاء الدالة لبدء الكتابة
+    </script>
+</body>
+</html>
